@@ -3,43 +3,23 @@ import { AboutContent, ContactContent, FAQContent, ArtistsContent, HomeContent, 
 
 // Base site configuration
 const SITE_CONFIG = {
-  name: 'Commandos18 Tattoo Bali | Professional Tattoo Studio',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://commandos18tattoo.com',
-  description: 'Premier Bali tattoo studio specializing in custom designs, realism, fine line, and traditional Balinese tattoos. Located in Bali, Indonesia. Top-rated artists & sterile environment.',
-  keywords: [
-    // Core
-    'Bali tattoo studio', 'Bali tattoo artist', 'tattoo Bali', 'Commandos18 Tattoo',
-    // Location Specific
-    'Canggu tattoo studio', 'Seminyak tattoo artist', 'Kuta tattoo parlor', 'Ubud tattoo shop', 'Sanur tattoo studio', 'Legian tattoo',
-    // Intent & Price
-    'Bali tattoo prices', 'affordable tattoo Bali', 'best tattoo artists Bali', 'top tattoo studio Bali', 'good life tattoo bali',
-    // Styles
-    'traditional tattoo Bali', 'Balinese tattoo', 'Japanese tattoo Bali', 'realism tattoo Bali', 'fine line tattoo Bali', 'minimalist tattoo Bali', 'portrait tattoo Bali', 'mandala tattoo Bali', 'geometric tattoo Bali', 'script tattoo Bali', 'cover up tattoo Bali',
-    // Services
-    'custom tattoo Bali', 'tattoo design Bali', 'full sleeve tattoo Bali', 'small tattoo Bali', 'tattoo consultation Bali',
-    // User specific
-    'the meaning of square tattoo', 'tattoo styles', 'different tattoo styles'
-  ],
+  name: 'Toby Myer Tattoo Studio',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://tobymyer.com',
+  description: 'Professional tattoo studio with talented artists specializing in custom tattoos and body art.',
+  keywords: ['tattoo', 'tattoo studio', 'custom tattoos', 'body art', 'tattoo artists', 'tattoo parlor'],
   locale: 'en_US',
-  alternateLocale: 'id_ID',
   type: 'website',
-  author: 'Commandos18 Tattoo Bali',
-  twitterHandle: '@commandos18tattoobali', // Placeholder if not strictly defined, using handle style
+  author: 'Toby Myer Tattoo Studio',
+  twitterHandle: '@tobymyer',
   logo: '/images/logo_tattoo_noBG.webp',
-  phone: '+62 877-7722-2020',
-  email: 'commandos18tattoo@gmail.com',
+  phone: '+1 (555) 123-4567',
+  email: 'info@tattoostudio.com',
   address: {
-    streetAddress: 'Bali', // Generic for now as specific street wasn't provided
-    addressLocality: 'Bali',
-    addressRegion: 'Bali',
-    postalCode: '80361', // Generic Bali/Canggu area code
-    addressCountry: 'ID'
-  },
-  social: {
-    instagram: 'https://instagram.com/commandos18tattoobali',
-    tiktok: 'https://www.tiktok.com/@commandos18tattoobali',
-    youtube: 'https://www.youtube.com/@commandos18tattoobali',
-    facebook: 'https://facebook.com/profile.php?id=61584087054163'
+    streetAddress: '123 Studio Street',
+    addressLocality: 'Art District',
+    addressRegion: 'City',
+    postalCode: '12345',
+    addressCountry: 'US'
   }
 };
 
@@ -70,7 +50,6 @@ export function generateBaseMetadata(): Metadata {
     openGraph: {
       type: SITE_CONFIG.type as any,
       locale: SITE_CONFIG.locale,
-      alternateLocale: SITE_CONFIG.alternateLocale,
       url: SITE_CONFIG.url,
       title: SITE_CONFIG.name,
       description: SITE_CONFIG.description,
@@ -145,10 +124,6 @@ export function generatePageMetadata(
     },
     alternates: {
       canonical: fullUrl,
-      languages: {
-        'en-US': fullUrl,
-        'id-ID': fullUrl, // Pointing to same URL for now as content is mixed/English
-      },
     },
   };
 }
@@ -156,9 +131,9 @@ export function generatePageMetadata(
 // Home page metadata
 export function generateHomeMetadata(content: HomeContent | null): Metadata {
   const base = generateBaseMetadata();
-  const title = content?.seo?.title || 'Bali Tattoo Studio | Best Artists & Custom Designs';
-  const description = content?.seo?.description || 'Top-rated Bali tattoo studio. Expert artists in realism, fine line, and traditional styles. Clean, safe, and professional environment in Bali.';
-  const keywords = ['Bali tattoo studio', 'best tattoo Bali', 'tattoo artist Bali', 'Canggu tattoo', 'Seminyak tattoo'];
+  const title = content?.seo?.title || 'Tattoo Studio | Professional Artists & Custom Tattoos';
+  const description = content?.seo?.description || SITE_CONFIG.description;
+  const keywords = ['home', 'tattoo studio', 'custom tattoos', 'body art', 'tattoo artists'];
   
   return {
     ...base,
@@ -169,9 +144,9 @@ export function generateHomeMetadata(content: HomeContent | null): Metadata {
 // About page metadata
 export function generateAboutMetadata(content: AboutContent | null): Metadata {
   const base = generateBaseMetadata();
-  const title = content?.seo?.title || 'About Commandos18 Tattoo Bali | Our Story & Artists';
-  const description = content?.seo?.description || 'Learn about Commandos18 Tattoo Bali, our experienced artists, and our commitment to hygiene and quality art. The best tattoo experience in Bali.';
-  const keywords = ['about tattoo Bali', 'tattoo studio history', 'Bali tattoo safety', 'professional tattoo artist Bali'];
+  const title = content?.seo?.title || 'About Our Tattoo Studio | Professional Artists & Quality Work';
+  const description = content?.seo?.description || 'Learn about our tattoo studio, our talented artists, and our commitment to quality and safety.';
+  const keywords = ['about', 'tattoo studio', 'our story', 'tattoo artists', 'studio history'];
   const images = content?.images ? [
     content.images.mainArtist.src,
     content.images.bottomLeft.src,
@@ -187,9 +162,9 @@ export function generateAboutMetadata(content: AboutContent | null): Metadata {
 // Contact page metadata
 export function generateContactMetadata(content: ContactContent | null): Metadata {
   const base = generateBaseMetadata();
-  const title = content?.seo?.title || 'Contact Commandos18 Tattoo Bali | Book Appointment';
-  const description = content?.seo?.description || 'Book your tattoo appointment in Bali. Contact Commandos18 Tattoo for consultations, price quotes, and bookings. WhatsApp and Email available.';
-  const keywords = ['book tattoo Bali', 'tattoo appointment Bali', 'Bali tattoo price quote', 'contact tattoo studio Bali'];
+  const title = content?.seo?.title || 'Contact Our Tattoo Studio | Book Your Appointment Today';
+  const description = content?.seo?.description || 'Get in touch with our tattoo studio to book your appointment. Find our location, hours, and contact information.';
+  const keywords = ['contact', 'tattoo appointment', 'book tattoo', 'tattoo studio location', 'contact form'];
   
   return {
     ...base,
@@ -200,9 +175,9 @@ export function generateContactMetadata(content: ContactContent | null): Metadat
 // FAQ page metadata
 export function generateFAQMetadata(content: FAQContent | null): Metadata {
   const base = generateBaseMetadata();
-  const title = 'FAQ | Tattoo Guide Bali | Commandos18 Tattoo';
-  const description = 'Common questions about getting a tattoo in Bali. Prices, safety, aftercare, and booking info for Commandos18 Tattoo Studio.';
-  const keywords = ['Bali tattoo FAQ', 'tattoo prices Bali', 'tattoo safety Bali', 'tattoo aftercare Bali', 'getting a tattoo in Bali'];
+  const title = 'Frequently Asked Questions | Tattoo Studio';
+  const description = 'Find answers to common questions about tattoos, appointments, aftercare, and our studio policies.';
+  const keywords = ['FAQ', 'tattoo questions', 'tattoo aftercare', 'tattoo appointment', 'tattoo FAQ'];
   
   return {
     ...base,
@@ -213,9 +188,9 @@ export function generateFAQMetadata(content: FAQContent | null): Metadata {
 // Artists page metadata
 export function generateArtistsMetadata(content: ArtistsContent | null): Metadata {
   const base = generateBaseMetadata();
-  const title = content?.seo?.title || 'Our Artists | Best Tattoo Artists in Bali';
-  const description = content?.seo?.description || 'Meet the talented team at Commandos18 Tattoo Bali. Specialists in realism, Japanese, traditional, and fine line tattoos.';
-  const keywords = ['Bali tattoo artists', 'best tattoo artist Bali', 'realism artist Bali', 'Japanese tattoo artist Bali', 'fine line artist Bali'];
+  const title = content?.seo?.title || 'Our Tattoo Artists | Meet Our Talented Team';
+  const description = content?.seo?.description || 'Meet our talented team of tattoo artists, each with their unique style and expertise.';
+  const keywords = ['tattoo artists', 'our artists', 'tattoo team', 'artist portfolio', 'tattoo styles'];
   const images = content?.artists?.map(artist => artist.photo) || undefined;
   
   return {
@@ -227,12 +202,12 @@ export function generateArtistsMetadata(content: ArtistsContent | null): Metadat
 // Artist detail page metadata
 export function generateArtistDetailMetadata(artist: ArtistsContent['artists'][0] | null): Metadata {
   const base = generateBaseMetadata();
-  const title = artist ? `${artist.name} | Bali Tattoo Artist | Commandos18 Tattoo` : 'Tattoo Artist Bali';
+  const title = artist ? `${artist.name} | Tattoo Artist | ${SITE_CONFIG.name}` : 'Tattoo Artist';
   const description = artist 
-    ? `Book an appointment with ${artist.name}, a top tattoo artist in Bali specializing in unique custom designs. View portfolio and works.`
-    : 'View the portfolio of our expert Bali tattoo artists.';
+    ? `Discover the unique tattoo artistry of ${artist.name}. View their portfolio and book your appointment today.`
+    : 'Learn about our talented tattoo artists and their unique styles.';
   const keywords = artist 
-    ? [artist.name.toLowerCase(), 'Bali tattoo artist', 'tattoo portfolio Bali', `${artist.name} tattoo`]
+    ? [artist.name.toLowerCase(), 'tattoo artist', 'tattoo portfolio', 'custom tattoos']
     : ['tattoo artist', 'artist portfolio', 'custom tattoos'];
   const images = artist ? [artist.photo, ...artist.gallery] : undefined;
   
@@ -245,9 +220,9 @@ export function generateArtistDetailMetadata(artist: ArtistsContent['artists'][0
 // Merchandise page metadata
 export function generateMerchandiseMetadata(): Metadata {
   const base = generateBaseMetadata();
-  const title = 'Merchandise | Commandos18 Tattoo Bali Apparel';
-  const description = 'Shop exclusive Commandos18 Tattoo Bali merchandise. T-shirts, accessories, and art prints from our Bali studio.';
-  const keywords = ['Bali tattoo merch', 'tattoo t-shirts Bali', 'tattoo clothing', 'Commandos18 merch'];
+  const title = 'Tattoo Merchandise | Apparel, Accessories & Art | Toby Myer Tattoo Studio';
+  const description = 'Shop our exclusive tattoo merchandise including apparel, accessories, and art prints. High-quality products featuring unique designs from our talented artists.';
+  const keywords = ['tattoo merchandise', 'tattoo apparel', 'tattoo accessories', 'tattoo art prints', 'tattoo studio merch', 'tattoo clothing'];
   const images = [
     '/images/assets/txt_merchandise.webp',
     '/images/components/btn_apparel.webp',
@@ -263,9 +238,9 @@ export function generateMerchandiseMetadata(): Metadata {
 // Gallery page metadata
 export function generateGalleryMetadata(): Metadata {
   const base = generateBaseMetadata();
-  const title = 'Tattoo Gallery | Best Tattoos in Bali | Commandos18';
-  const description = 'Explore our gallery of tattoos done in Bali. Realism, color, black & grey, and traditional works by Commandos18 artists.';
-  const keywords = ['Bali tattoo gallery', 'tattoo photos Bali', 'best tattoo works Bali', 'tattoo inspiration', 'tattoo portfolio'];
+  const title = 'Tattoo Gallery | Our Tattoo Artwork | Toby Myer Tattoo Studio';
+  const description = 'Explore our tattoo gallery showcasing our artists\' work in traditional, color, black & gray, and custom tattoo designs.';
+  const keywords = ['tattoo gallery', 'tattoo artwork', 'tattoo designs', 'tattoo portfolio', 'tattoo examples', 'tattoo inspiration'];
   const images = [
     '/images/assets/txt_gallery.webp',
     '/images/components/btn_traditional.webp',
@@ -301,53 +276,44 @@ export function generateOrganizationStructuredData() {
       '@type': 'ContactPoint',
       telephone: SITE_CONFIG.phone,
       contactType: 'customer service',
-      areaServed: 'Bali, Indonesia',
-      availableLanguage: ['English', 'Indonesian'],
+      availableLanguage: 'English',
     },
     address: {
       '@type': 'PostalAddress',
       ...SITE_CONFIG.address,
     },
     sameAs: [
-      SITE_CONFIG.social.instagram,
-      SITE_CONFIG.social.facebook,
-      SITE_CONFIG.social.youtube,
-      SITE_CONFIG.social.tiktok,
+      `https://twitter.com/${SITE_CONFIG.twitterHandle}`,
+      // Add social media URLs here
     ],
   });
 }
 
 // LocalBusiness structured data
 export function generateLocalBusinessStructuredData() {
-  return generateStructuredData('TattooParlor', {
+  return generateStructuredData('LocalBusiness', {
     name: SITE_CONFIG.name,
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
     logo: `${SITE_CONFIG.url}${SITE_CONFIG.logo}`,
-    image: `${SITE_CONFIG.url}${SITE_CONFIG.logo}`,
     telephone: SITE_CONFIG.phone,
     email: SITE_CONFIG.email,
     address: {
       '@type': 'PostalAddress',
       ...SITE_CONFIG.address,
     },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: -8.650000, // Approximate Bali coordinates, update if specific
-      longitude: 115.216667
-    },
-    areaServed: 'Bali',
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        opens: '10:00',
-        closes: '22:00'
-      }
+    openingHours: [
+      'Mo-Closed',
+      'Tu 11:00-19:00',
+      'We 11:00-19:00',
+      'Th 11:00-19:00',
+      'Fr 11:00-19:00',
+      'Sa 11:00-19:00',
+      'Su-Closed',
     ],
     priceRange: '$$',
-    paymentAccepted: ['Cash', 'Credit Card', 'Bank Transfer'],
-    currenciesAccepted: 'IDR, USD, AUD, EUR',
+    paymentAccepted: ['Cash', 'Credit Card', 'Debit Card'],
+    currenciesAccepted: 'USD',
   });
 }
 
@@ -355,15 +321,14 @@ export function generateLocalBusinessStructuredData() {
 export function generateArtistStructuredData(artist: ArtistsContent['artists'][0]) {
   return generateStructuredData('Person', {
     name: artist.name,
-    description: `Professional tattoo artist at ${SITE_CONFIG.name}, Bali`,
+    description: `Professional tattoo artist at ${SITE_CONFIG.name}`,
     image: artist.photo,
-    jobTitle: 'Tattoo Artist',
     worksFor: {
-      '@type': 'TattooParlor',
+      '@type': 'Organization',
       name: SITE_CONFIG.name,
       url: SITE_CONFIG.url,
     },
-    knowsAbout: ['Tattooing', 'Body Art', 'Custom Design', 'Realism', 'Traditional'],
+    knowsAbout: ['Tattooing', 'Body Art', 'Custom Design'],
     sameAs: `${SITE_CONFIG.url}/ourArtists/${artist.id}`,
   });
 }
@@ -434,7 +399,7 @@ export function generateGalleryStructuredData(content: GalleryContent) {
         '@type': 'ImageObject',
         position: index + 1,
         url: `${SITE_CONFIG.url}${image}`,
-        caption: `Bali Tattoo artwork ${index + 1} from ${SITE_CONFIG.name}`
+        caption: `Tattoo artwork ${index + 1} from ${SITE_CONFIG.name}`
       }))
     }
   });
