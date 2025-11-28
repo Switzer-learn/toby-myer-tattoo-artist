@@ -213,7 +213,7 @@ export function generateFAQMetadata(content: FAQContent | null): Metadata {
 // Artists page metadata
 export function generateArtistsMetadata(content: ArtistsContent | null): Metadata {
   const base = generateBaseMetadata();
-  const title = content?.seo?.title || 'Our Artists | Best Tattoo Artists in Bali';
+  const title = content?.seo?.title || 'Bali Tattoo Heroes';
   const description = content?.seo?.description || 'Meet the talented team at Commandos18 Tattoo Bali. Specialists in realism, Japanese, traditional, and fine line tattoos.';
   const keywords = ['Bali tattoo artists', 'best tattoo artist Bali', 'realism artist Bali', 'Japanese tattoo artist Bali', 'fine line artist Bali'];
   const images = content?.artists?.map(artist => artist.photo) || undefined;
