@@ -23,8 +23,6 @@ export async function GET(request: NextRequest) {
       error?: string;
     };
 
-    console.log("all artists result", result)
-
     if (result.success) {
       return NextResponse.json(result, { status: 200 });
     } else {

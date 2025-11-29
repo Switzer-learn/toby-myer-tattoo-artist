@@ -20,8 +20,6 @@ export async function GET(
       error?: string;
     };
 
-    console.log(result)
-
     if (result.success) {
       return NextResponse.json(result, { status: 200 });
     } else {

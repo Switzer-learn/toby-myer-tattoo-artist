@@ -155,7 +155,6 @@ export async function updatePromotion(id: string, updateData: any): Promise<obje
  */
 export async function updatePromotionStatus(id: string, isActive: boolean): Promise<object> {
   try {
-    console.log('Updating promotion status:', id, isActive);
     const db = await getDatabase();
     const collection = db.collection('promotion');
     

@@ -549,7 +549,6 @@ export async function getContentBySection(section: string): Promise<object> {
     // Find content by section
     const contentDoc = await collection.findOne({ section });
     
-    console.log("dbfunction ",contentDoc)
     if (!contentDoc) {
       return createErrorResponse('Content not found', 404);
     }

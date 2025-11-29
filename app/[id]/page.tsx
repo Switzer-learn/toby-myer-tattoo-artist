@@ -14,6 +14,7 @@ interface Artist {
   _id?: { toString(): string } | string;
   name: string;
   photo: string;
+  displayPhoto?: string;
   tagline: string;
   gallery: string[];
   isActive?: boolean;
@@ -39,9 +40,10 @@ async function getArtist(id: string) {
       }
 
       return {
-        id: artist._id?.toString() || id,
+        _id: artist._id?.toString() || id,
         name: artist.name,
         photo: artist.photo,
+        displayPhoto: artist.displayPhoto,
         tagline: artist.tagline || '',
         gallery: artist.gallery || [],
       };
