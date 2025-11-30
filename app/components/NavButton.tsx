@@ -85,15 +85,15 @@ const NavButton = ({ layout = 'flexible' }: NavButtonProps) => {
     };
 
     const primaryGroup1 = [
-        { menu: "BOOK NOW", link: "https://commandos18tattoo.com/contact", imageName: "btn_bookNow.webp", target: "_blank" },
-        { menu: "TATTOO NEWS", link: "https://commandos18tattoo.com/news", imageName: "btn_tattooNews.webp", target: "_self" },
+        { menu: "BOOK NOW", link: "/contact", imageName: "btn_bookNow.webp", target: "_blank" },
+        { menu: "TATTOO NEWS", link: "https://balitattoonews.com", imageName: "btn_tattooNews.webp", target: "_blank" },
         { menu: "PROMO", action: handlePromoClick, imageName: "btn_Promo.webp", isButton: true },
     ];
 
     const primaryGroup2 = [
-        { menu: "HOME", link: "https://commandos18tattoo.com/menu", imageName: "btn_home.webp", target: "_self" },
+        { menu: "HOME", link: "/menu", imageName: "btn_home.webp", target: "_self" },
         { menu: "WHATSAPP", link: socialLinks?.whatsapp || "https://wa.me/6287777222020", imageName: "btn_whatsapp.webp", target: "_blank" },
-        { menu: "EMAIL", link: socialLinks?.email || "mailto:commandos18tattoo@gmail.com", imageName: "btn_email.webp", target: "_blank" },
+        { menu: "EMAIL", link: socialLinks?.email, imageName: "btn_email.webp", target: "_blank" },
     ];
 
     const secondaryMenu = [
@@ -107,9 +107,9 @@ const NavButton = ({ layout = 'flexible' }: NavButtonProps) => {
 
     // Determine flex classes based on layout type
     const flexClasses = layout === 'flexible'
-        ? "relative flex flex-col md:flex-col lg:flex-row gap-2 justify-center items-center"
+        ? "relative flex flex-col md:flex-row gap-2 justify-center items-center flex-wrap"
         : layout === 'constrained'
-            ? "relative flex flex-col md:flex-row lg:flex-col 2xl:flex-row gap-2 justify-center items-center"
+            ? "relative flex flex-col md:flex-row gap-2 justify-center items-center flex-wrap"
             : "relative flex flex-col gap-2 3xl:flex-row justify-center items-center"; // column-only
 
     return (
@@ -121,14 +121,9 @@ const NavButton = ({ layout = 'flexible' }: NavButtonProps) => {
                         <button
                             key={`g1-${index}`}
                             onClick={item.action}
-                            className="relative h-16 md:h-20 shrink-0 hover:scale-110 transition-transform cursor-pointer"
+                            className={`relative h-12 md:h-14 xl:h-16 shrink-0 hover:scale-110 transition-transform cursor-pointer ${item.menu === "PROMO" ? "drop-shadow-[0_0_10px_rgba(225,0,0,1)] animate-bounce" : ""
+                                }`}
                         >
-                            {/* Ping animation wrapper - only for PROMO */}
-                            {item.menu === "PROMO" && (
-                                <span className="absolute inset-0 animate-ping opacity-75">
-                                    <span className="absolute inset-0 rounded-lg border-2 border-red-500"></span>
-                                </span>
-                            )}
                             <Image
                                 src={`/images/components/${item.imageName}`}
                                 alt={item.menu}
@@ -143,7 +138,7 @@ const NavButton = ({ layout = 'flexible' }: NavButtonProps) => {
                             href={item.link}
                             target={item.target}
                             rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
-                            className="relative h-16 md:h-20 shrink-0 hover:scale-110 transition-transform"
+                            className="relative h-12 md:h-14 xl:h-16 shrink-0 hover:scale-110 transition-transform"
                         >
                             <Image
                                 src={`/images/components/${item.imageName}`}
@@ -165,7 +160,7 @@ const NavButton = ({ layout = 'flexible' }: NavButtonProps) => {
                         href={item.link}
                         target={item.target}
                         rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
-                        className="relative h-16 md:h-20 shrink-0 hover:scale-110 transition-transform"
+                        className="relative h-12 md:h-14 xl:h-16 shrink-0 hover:scale-110 transition-transform"
                     >
                         <Image
                             src={`/images/components/${item.imageName}`}
@@ -180,7 +175,7 @@ const NavButton = ({ layout = 'flexible' }: NavButtonProps) => {
                 {/* Hamburger Button */}
                 <button
                     onClick={toggleMenu}
-                    className="relative h-16 md:h-20 shrink-0 hover:scale-110 transition-transform focus:outline-none"
+                    className="relative h-12 md:h-14 xl:h-16 shrink-0 hover:scale-110 transition-transform focus:outline-none"
                 >
                     <Image
                         src={`/images/components/${isOpen ? "btn_x.webp" : "btn_hamburger.webp"}`}
@@ -226,7 +221,7 @@ const NavButton = ({ layout = 'flexible' }: NavButtonProps) => {
             </AnimatePresence>
 
             {/* PromoDisplay Modal */}
-            {showPromo && (
+            {showPromo && promotions.length > 0 && (
                 <PromoDisplay
                     promotions={promotions}
                     onClose={handleClosePromo}
