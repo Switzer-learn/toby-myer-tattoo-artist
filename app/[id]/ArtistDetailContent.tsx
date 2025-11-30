@@ -157,22 +157,40 @@ const ArtistDetailContent = ({ initialArtist }: ArtistDetailContentProps) => {
               />
               {/* Book Button Overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/80 to-transparent flex justify-center">
-                <a
-                  href={`https://commandos18tattoobali.com/contact?message=${encodeURIComponent(`I want to book with this artist ${initialArtist.name}`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${sairaStencilOne.className} uppercase bg-transparent border border-white hover:bg-black/30 text-white font-bold py-8 px-4 rounded-md shadow-lg transition-colors flex items-center gap-2 text-sm sm:text-base z-20`}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Image
-                    src="/images/components/btn_whatsapp.webp"
-                    alt="WhatsApp"
-                    width={24}
-                    height={24}
-                    className="w-6 h-6 object-contain"
-                  />
-                  Book with this artist
-                </a>
+                <div className="flex flex-col sm:flex-row gap-3 w-full px-4 justify-center items-center">
+                  <a
+                    href={`https://commandos18tattoobali.com/contact?message=${encodeURIComponent(`I want to book with this artist ${initialArtist.name}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${sairaStencilOne.className} uppercase bg-transparent border border-white hover:bg-black/30 text-white font-bold py-4 px-6 rounded-md shadow-lg transition-colors flex items-center justify-center gap-2 text-sm sm:text-base w-full sm:w-auto`}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Image
+                      src="/images/components/btn_email.webp"
+                      alt="Email"
+                      width={24}
+                      height={24}
+                      className="w-6 h-6 object-contain"
+                    />
+                    Book via Email
+                  </a>
+                  <a
+                    href={`${socialLinks?.whatsapp || "https://wa.me/6287777222020"}?text=${encodeURIComponent(`Hi, I want to book with this artist ${initialArtist.name}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${sairaStencilOne.className} uppercase bg-transparent border border-white hover:bg-black/30 text-white font-bold py-4 px-6 rounded-md shadow-lg transition-colors flex items-center justify-center gap-2 text-sm sm:text-base w-full sm:w-auto`}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Image
+                      src="/images/components/btn_whatsapp.webp"
+                      alt="WhatsApp"
+                      width={24}
+                      height={24}
+                      className="w-6 h-6 object-contain"
+                    />
+                    Book via WhatsApp
+                  </a>
+                </div>
               </div>
             </motion.div>
 
