@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import ArtistFrame from "./components/ArtistFrame";
-import NavButton from "./components/NavButton";
+import ArtistFrame from "../components/ArtistFrame";
+import NavButton from "../components/NavButton";
 
 interface Artist {
   id: string;
