@@ -107,7 +107,7 @@ const ArtistDetailContent = ({ initialArtist }: ArtistDetailContentProps) => {
           transition={{ duration: 0.5 }}
         >
           <Link
-            href="/"
+            href="/artists"
             className={`${sairaStencilOne.className} inline-flex items-center gap-2 text-white hover:text-gray-300 transition-colors group uppercase tracking-wider text-sm md:text-base`}
           >
             <svg
@@ -158,7 +158,7 @@ const ArtistDetailContent = ({ initialArtist }: ArtistDetailContentProps) => {
               {/* Book Button Overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/80 to-transparent flex justify-center">
                 <a
-                  href={`${socialLinks?.whatsapp || "https://wa.me/6287777222020"}?text=${encodeURIComponent(`Hi, I want to book with this artist ${initialArtist.name}`)}`}
+                  href={`https://commandos18tattoobali.com/contact?message=${encodeURIComponent(`I want to book with this artist ${initialArtist.name}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${sairaStencilOne.className} uppercase bg-transparent border border-white hover:bg-black/30 text-white font-bold py-8 px-4 rounded-md shadow-lg transition-colors flex items-center gap-2 text-sm sm:text-base z-20`}
@@ -200,13 +200,13 @@ const ArtistDetailContent = ({ initialArtist }: ArtistDetailContentProps) => {
           >
             {/* Gallery Grid */}
             <motion.div
-              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 flex-1 mb-8"
+              className="grid grid-rows-[repeat(2,150px)] md:grid-rows-[repeat(2,200px)] lg:grid-rows-[repeat(2,250px)] grid-flow-col auto-cols-[150px] md:auto-cols-[200px] lg:auto-cols-[250px] gap-4 md:gap-6 lg:gap-8 flex-1 mb-8 overflow-x-auto pb-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
               variants={itemVariants}
             >
               {initialArtist.gallery.map((imageUrl: string, index: number) => (
                 <motion.div
                   key={index}
-                  className="relative w-full aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow cursor-zoom-in"
+                  className="relative w-full h-full aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow cursor-zoom-in snap-start"
                   whileHover={reduce ? undefined : { scale: 1.05 }}
                   whileTap={reduce ? undefined : { scale: 0.95 }}
                   onClick={() => {
@@ -220,7 +220,7 @@ const ArtistDetailContent = ({ initialArtist }: ArtistDetailContentProps) => {
                     fill
                     crop="fill"
                     className="rounded-lg object-cover"
-                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                    sizes="(max-width: 768px) 150px, (max-width: 1200px) 200px, 250px"
                   />
                 </motion.div>
               ))}
