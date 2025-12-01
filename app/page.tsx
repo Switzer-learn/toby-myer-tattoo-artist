@@ -3,6 +3,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { Mr_Dafoe, Caveat } from 'next/font/google';
+
+const mrDafoe = Mr_Dafoe({ subsets: ['latin'], weight: ['400'] });
+const caveat = Caveat({ subsets: ['latin'], weight: ['400'] });
 
 export default function Home() {
   return (
@@ -27,7 +31,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase leading-tight"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-tight"
           style={{
             background: 'linear-gradient(to bottom, #C0C0C0 0%, #E8E8E8 25%, #808080 50%, #E8E8E8 75%, #C0C0C0 100%)',
             WebkitBackgroundClip: 'text',
@@ -37,7 +41,7 @@ export default function Home() {
             filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.8))'
           }}
         >
-          WELCOME TO<br />BALITATTOOHEROES.COM
+          <span className={`text-white ${caveat.className}`}>Welcome to</span><br /><span className={`text-white tracking-widest ${mrDafoe.className}`}>BALI TATTOO HEROES</span>
         </motion.h1>
 
         {/* Enter Button */}

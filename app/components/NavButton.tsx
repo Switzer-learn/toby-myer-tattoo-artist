@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { socialLinks } from "@/lib/config";
 import axios from 'axios';
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -16,6 +15,8 @@ interface NavButtonProps {
      */
     layout?: 'flexible' | 'constrained' | 'column-only';
 }
+
+
 
 const NavButton = ({ layout = 'flexible' }: NavButtonProps) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -85,13 +86,13 @@ const NavButton = ({ layout = 'flexible' }: NavButtonProps) => {
     };
 
     const primaryGroup1 = [
-        { menu: "BOOK NOW", link: "/contact", imageName: "btn_bookNow.webp", target: "_blank" },
+        { menu: "BOOK NOW", link: "https://www.commandos18tattoobali.com/contact", imageName: "btn_bookNow.webp", target: "_blank" },
         { menu: "TATTOO NEWS", link: "https://balitattoonews.com", imageName: "btn_tattooNews.webp", target: "_blank" },
         { menu: "PROMO", action: handlePromoClick, imageName: "btn_Promo.webp", isButton: true },
     ];
 
     const primaryGroup2 = [
-        { menu: "HOME", link: "/menu", imageName: "btn_home.webp", target: "_self" },
+        { menu: "HOME", link: "https://www.commandos18tattoobali.com/menu", imageName: "btn_home.webp", target: "_self" },
         { menu: "WHATSAPP", link: socialLinks?.whatsapp || "https://wa.me/6287777222020", imageName: "btn_whatsapp.webp", target: "_blank" },
         { menu: "EMAIL", link: socialLinks?.email, imageName: "btn_email.webp", target: "_blank" },
     ];
@@ -103,6 +104,7 @@ const NavButton = ({ layout = 'flexible' }: NavButtonProps) => {
         { menu: "YOUTUBE", link: socialLinks?.youtube || "https://www.youtube.com/@commandos18tattoobali", imageName: "btn_yt.webp" },
         { menu: "TIKTOK", link: socialLinks?.tiktok || "https://www.tiktok.com/@commandos18tattoobali", imageName: "btn_tiktok.webp" },
         { menu: "LinkTree", link: socialLinks?.linktree || "/", imageName: "btn_linktree.webp" },
+        { menu: "LOCATION", link: "https://maps.app.goo.gl/uhwc96VuHVGZMfV86", imageName: "btn_location.webp" },
     ];
 
     // Determine flex classes based on layout type
