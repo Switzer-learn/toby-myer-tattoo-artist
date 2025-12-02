@@ -148,7 +148,7 @@ const ArtistsContent = ({ artists }: ArtistsContentProps) => {
         </motion.div>
 
         {/* Artists Grid - Optimized for ArtistFrame component */}
-        <div className="flex-1 flex items-center justify-center w-full px-2 sm:px-6 md:px-8 lg:px-10 xl:px-12 pb-24">
+        <div className="flex-1 flex items-center justify-center w-full px-2 sm:px-6 md:px-8 lg:px-10 xl:px-12 pb-24 max-w-[1920px]">
           <motion.div
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10 justify-items-center w-full max-w-md md:max-w-none"
             initial={reduce ? undefined : "hidden"}

@@ -71,6 +71,7 @@ const ArtistFrame = ({ artist, isEmpty = false }: ArtistFrameProps) => {
             fill
             crop="fill"
             gravity="face"
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
             className="object-cover"
             fetchPriority="auto"
           />
