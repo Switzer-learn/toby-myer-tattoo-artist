@@ -3,10 +3,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Mr_Dafoe, Caveat } from 'next/font/google';
+import { Mr_Dafoe, Caveat, Blaka } from 'next/font/google';
 
 const mrDafoe = Mr_Dafoe({ subsets: ['latin'], weight: ['400'] });
 const caveat = Caveat({ subsets: ['latin'], weight: ['400'] });
+const frederickaTheGreat = Blaka({ subsets: ['latin'], weight: ['400'] });
 
 export default function Home() {
   return (
@@ -41,7 +42,7 @@ export default function Home() {
             filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.8))'
           }}
         >
-          <span className={`text-white ${caveat.className}`}>Welcome to</span><br /><span className={`text-white tracking-widest ${mrDafoe.className}`}>BALI TATTOO HEROES</span>
+          <span className={`text-white ${caveat.className}`}>Welcome to</span><br /><span className={`text-white tracking-widest ${frederickaTheGreat.className}`}>BALI TATTOO HEROES</span>
         </motion.h1>
 
         {/* Enter Button */}
