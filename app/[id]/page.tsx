@@ -16,6 +16,12 @@ interface Artist {
   photo: string;
   displayPhoto?: string;
   tagline: string;
+  bio?: {
+    age: number;
+    about: string[];
+    yearsExperience: number;
+    bioText: string;
+  };
   gallery: string[];
   isActive?: boolean;
 }
@@ -45,6 +51,7 @@ async function getArtist(id: string) {
         photo: artist.photo,
         displayPhoto: artist.displayPhoto,
         tagline: artist.tagline || '',
+        bio: artist.bio,
         gallery: artist.gallery || [],
       };
     }

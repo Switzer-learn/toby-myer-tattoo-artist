@@ -1,35 +1,51 @@
 {
   "_id": {
-    "$oid": "692b1c6d4b5c3f0189f90220"
+    "$oid": "692ef4c0c3659cd155d1047e"
   },
-  "name": "test artist",
-  "photo": "https://res.cloudinary.com/dly6skk3d/image/upload/v1764432909/hokjqsj3dmlwleiasq7z.png",
-  "displayPhoto": "https://res.cloudinary.com/dly6skk3d/image/upload/v1764432962/giwhxrttsexo4vpu9mmd.png",
-  "tagline": "test",
-  "slug": "test-artist",
+  "name": "PUNKKEY",
+  "photo": "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684611/hjwl4xfk385qiqc7b53f.jpg",
+  "displayPhoto": "",
+  "tagline": "​⚡ PUNKKEY: The Fineline Precision Expert ​PUNKKEY is a tattoo artist recognized as an expert in the Fineline Style. Their reputation is built upon exceptional accuracy and delicate technique. ​Expertise and Technique ​PUNKKEY focuses on detail and subtlety, making them a top choice for thin-line tattoos: ​Ultra-Fine Lines: PUNKKEY's main advantage is their ability to produce very straight and smooth lines with perfect consistency. ​Needle Usage: They specifically use very thin needles to ensure every detail appears sharp yet elegant. ​Ink Mixing: Their technique involves mixing very soft ink, resulting in gentle gradation and shading, which is ideal for subtle effects in Fineline work.",
+  "slug": "PUNKKEY",
   "bio": {
-    "age": 122,
+    "age": 40,
     "about": [],
-    "yearsExperience": 100
+    "yearsExperience": 2000,
+    "bioText": "<p>test bio</p>"
   },
   "gallery": [
-    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764432984/aj8jwwybk1psl72dowpq.webp",
-    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764432984/vkn1ztuoadedao9unjd5.webp",
-    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764432984/hwkfiwtkw96rjadxzxlu.webp",
-    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764432984/sgxgca3ljxluepjk84l2.webp",
-    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764432985/rkny3apy03ulrubhhwr7.webp",
-    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764432985/k51h98lwkwhzo6eewgl4.webp",
-    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764432986/svux5vwjythbzr5qtvz2.png",
-    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764432987/kexgdajqljhwcz1zl7dc.png",
-    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764432988/uhvyuogb4sfrbpizg0sr.png",
-    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764432991/gklki3pby22arpotlhf4.png",
-    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764432999/c7ulrfjmacs5jiu7y8eo.png",
-    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764433000/sokftrv96dwhltmtmbyr.png"
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684924/ckk6hhcxssh4gaaj9eri.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684924/wir7atsgql38tgasy5rx.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684924/yqzmrsnrjnyo0t9sfvtb.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684924/oojex3ji2diujrxtqko8.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684924/wxgqtnp2u3wzxexkmsak.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684924/qlnm4aph9nb94r6buyvj.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684925/ckxnn7pxclqxwiglrib1.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684925/jpvka1dz24glqzdpxb2v.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684925/gsblnxyak7wmhra598mn.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684925/xhfgawxpk31daxelskyw.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684925/qnnkbfrnftzbb8rqrgjn.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684926/mnwwjcaooskwmyic4bpw.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684926/gab6e7nucmrjmkg4umyg.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684926/pfr2mk0vssezxwkbusw3.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684926/lgwa5v4jzuefuojtsakz.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684927/xygjeger5vmuodq9gb4r.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684927/kpazev1ymekpyaadn50g.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684927/czwj7ibgnst9eqxtqyhx.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684927/sdx9dkf3slyuypf8gaew.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684927/rw2ca7xrzs2fajl5ymtq.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684927/xfiqjgxsyl0lde4ewwqm.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684928/d2wyz6j9bdk0sbofmlfj.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684928/mpglhk9cy7q3ej9tmi1a.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684928/xztfqccqzvwkkabngnjh.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684931/u3gomy1wmybpva9cc6z4.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684932/ga31v5ejgi8nvwr7o2p7.jpg",
+    "https://res.cloudinary.com/dly6skk3d/image/upload/v1764684979/tc2irtw99xplrhjh7im7.jpg"
   ],
   "availability": {
     "status": "available"
   },
   "isActive": true,
-  "createdAt": "2025-11-29T16:16:45.803Z",
-  "updatedAt": "2025-11-29T16:16:45.803Z"
+  "createdAt": "2025-12-02T14:16:32.533Z",
+  "updatedAt": "2025-12-03T05:56:02.389Z"
 }

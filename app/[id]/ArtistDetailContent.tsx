@@ -21,6 +21,7 @@ interface Artist {
     age: number;
     about: string[];
     yearsExperience: number;
+    bioText: string;
   };
   gallery: string[];
   availability?: {
@@ -40,6 +41,7 @@ const ArtistDetailContent = ({ initialArtist }: ArtistDetailContentProps) => {
   const [socialLinks, setSocialLinks] = useState<any>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [imageLoading, setImageLoading] = useState(false);
+  const [activeView, setActiveView] = useState<'bio' | 'gallery'>('gallery');
 
   useEffect(() => {
     const fetchConfig = async () => {
@@ -130,18 +132,18 @@ const ArtistDetailContent = ({ initialArtist }: ArtistDetailContentProps) => {
         </motion.div>
 
         {/* Artist Content */}
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16"
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 min-h-[calc(100vh-8rem)] md:min-h-[calc(100vh-12rem)] lg:min-h-[calc(100vh-16rem)] xl:min-h-[calc(100vh-20rem)]"
         >
           {/* Left Column - Artist Photo and Name */}
           <motion.div
-            className="shrink-0 flex flex-col items-center gap-6 md:w-1/3"
+            className="shrink-0 flex flex-col items-center gap-6 md:w-1/3 h-full"
             initial={reduce ? undefined : "hidden"}
             animate={reduce ? undefined : "visible"}
             variants={containerVariants}
           >
             {/* Artist Photo */}
             <motion.div
-              className="relative w-full h-96 sm:h-80 md:h-96 lg:h-full rounded-lg overflow-hidden shadow-2xl"
+              className="relative w-full h-[calc(100vh-16rem)] sm:h-[calc(100vh-14rem)] md:h-[calc(100vh-16rem)] lg:h-[calc(100vh-20rem)] xl:h-[calc(100vh-24rem)] rounded-lg overflow-hidden shadow-2xl"
               variants={imageVariants}
               whileHover={reduce ? undefined : { scale: 1.05 }}
             >
@@ -201,48 +203,80 @@ const ArtistDetailContent = ({ initialArtist }: ArtistDetailContentProps) => {
               </h1>
             </motion.div>
 
-            {/* Tagline */}
-            <motion.div variants={itemVariants} className="text-center">
-              <p className="text-sm md:text-base lg:text-lg text-gray-300 font-semibold uppercase tracking-widest">
-                {initialArtist.tagline}
-              </p>
+            {/* Bio/Gallery Toggle Buttons */}
+            <motion.div variants={itemVariants} className="flex gap-4 justify-center">
+              <button
+                onClick={() => setActiveView('bio')}
+                className={`${sairaStencilOne.className} uppercase px-8 py-3 rounded-md transition-all text-sm md:text-base tracking-wider ${activeView === 'bio'
+                  ? 'bg-white text-black font-bold'
+                  : 'bg-transparent border border-white text-white hover:bg-white/10'
+                  }`}
+              >
+                BIO
+              </button>
+              <button
+                onClick={() => setActiveView('gallery')}
+                className={`${sairaStencilOne.className} uppercase px-8 py-3 rounded-md transition-all text-sm md:text-base tracking-wider ${activeView === 'gallery'
+                  ? 'bg-white text-black font-bold'
+                  : 'bg-transparent border border-white text-white hover:bg-white/10'
+                  }`}
+              >
+                GALLERY
+              </button>
             </motion.div>
           </motion.div>
 
           {/* Right Column - Gallery Grid and NavButton */}
           <motion.div
-            className="flex-1 flex flex-col md:w-2/3"
+            className="flex-1 flex flex-col md:w-2/3 h-full"
             initial={reduce ? undefined : "hidden"}
             animate={reduce ? undefined : "visible"}
             variants={containerVariants}
           >
-            {/* Gallery Grid */}
-            <motion.div
-              className="grid grid-rows-[repeat(2,150px)] md:grid-rows-[repeat(2,200px)] lg:grid-rows-[repeat(2,250px)] grid-flow-col auto-cols-[150px] md:auto-cols-[200px] lg:auto-cols-[250px] gap-4 md:gap-6 lg:gap-8 flex-1 mb-8 overflow-x-auto pb-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-              variants={itemVariants}
-            >
-              {initialArtist.gallery.map((imageUrl: string, index: number) => (
-                <motion.div
-                  key={index}
-                  className="relative w-full h-full aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow cursor-zoom-in snap-start"
-                  whileHover={reduce ? undefined : { scale: 1.05 }}
-                  whileTap={reduce ? undefined : { scale: 0.95 }}
-                  onClick={() => {
-                    setImageLoading(true);
-                    setSelectedImage(imageUrl);
-                  }}
-                >
-                  <CldImage
-                    src={imageUrl}
-                    alt={`${initialArtist.name} portfolio ${index + 1}`}
-                    fill
-                    crop="fill"
-                    className="rounded-lg object-cover"
-                    sizes="(max-width: 768px) 150px, (max-width: 1200px) 200px, 250px"
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
+            {/* Bio/Gallery Content */}
+            {activeView === 'bio' ? (
+              <motion.div
+                className="flex-1 mb-8 overflow-y-auto max-h-[calc(100vh-20rem)] sm:max-h-[calc(100vh-18rem)] md:max-h-[calc(100vh-16rem)] lg:max-h-[calc(100vh-20rem)] xl:max-h-[calc(100vh-24rem)] min-h-[calc(50vh-10rem)] sm:min-h-[calc(50vh-9rem)] md:min-h-[calc(100vh-16rem)] lg:min-h-[calc(100vh-20rem)] xl:min-h-[calc(100vh-24rem)] custom-scrollbar"
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
+                key="bio"
+              >
+                <div className="prose prose-invert prose-lg max-w-none h-full">
+                  <div className="pb-8" dangerouslySetInnerHTML={{ __html: initialArtist.bio?.bioText || '<p>No bio available</p>' }} />
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                className="grid grid-rows-[repeat(2,150px)] md:grid-rows-[repeat(2,200px)] lg:grid-rows-[repeat(2,250px)] grid-flow-col auto-cols-[150px] md:auto-cols-[200px] lg:auto-cols-[250px] gap-4 md:gap-6 lg:gap-8 flex-1 mb-8 overflow-x-auto pb-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] min-h-[calc(100vh-20rem)] sm:min-h-[calc(100vh-18rem)] md:min-h-[calc(100vh-20rem)] lg:min-h-[calc(100vh-24rem)] xl:min-h-[calc(100vh-28rem)]"
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
+                key="gallery"
+              >
+                {initialArtist.gallery.map((imageUrl: string, index: number) => (
+                  <motion.div
+                    key={index}
+                    className="relative w-full h-full aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow cursor-zoom-in snap-start"
+                    whileHover={reduce ? undefined : { scale: 1.05 }}
+                    whileTap={reduce ? undefined : { scale: 0.95 }}
+                    onClick={() => {
+                      setImageLoading(true);
+                      setSelectedImage(imageUrl);
+                    }}
+                  >
+                    <CldImage
+                      src={imageUrl}
+                      alt={`${initialArtist.name} portfolio ${index + 1}`}
+                      fill
+                      crop="fill"
+                      className="rounded-lg object-cover"
+                      sizes="(max-width: 768px) 150px, (max-width: 1200px) 200px, 250px"
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
 
             {/* Bottom Right - NavButton and Tagline Text */}
             <motion.div
