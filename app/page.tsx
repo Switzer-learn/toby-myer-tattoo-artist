@@ -42,7 +42,7 @@ export default function Home() {
             filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.8))'
           }}
         >
-          <span className={`text-white ${caveat.className}`}>Welcome to</span><br /><span className={`text-white tracking-widest ${frederickaTheGreat.className}`}>BALI TATTOO HEROES</span>
+          <span className={`text-white ${caveat.className}`}>Welcome to</span><br /><span className={`text-white tracking-widest font-extrabold`}>BALI TATTOO HEROES</span>
         </motion.h1>
 
         {/* Enter Button */}
