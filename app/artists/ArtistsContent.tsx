@@ -11,6 +11,7 @@ interface Artist {
   name: string;
   photo: string;
   tagline: string;
+  order?: number;
 }
 
 interface ArtistsContentProps {

@@ -9,6 +9,7 @@ interface Artist {
   name: string;
   image: string;
   link: string;
+  order?: number;
 }
 
 interface ArtistFrameProps {

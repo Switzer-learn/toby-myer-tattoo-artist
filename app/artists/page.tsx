@@ -14,6 +14,7 @@ interface Artist {
     tagline?: string;
     gallery?: string[];
     isActive?: boolean;
+    order?: number;
 }
 
 interface ArtistResult {
@@ -31,12 +32,16 @@ async function getArtists() {
 
         if (result.success && result.data?.artists) {
             // Transform artists data for the component
-            return result.data.artists.map((artist) => ({
+            const transformedArtists = result.data.artists.map((artist) => ({
                 id: artist._id?.toString() || artist.artistId || '',
                 name: artist.name,
                 photo: artist.photo,
                 tagline: artist.tagline || '',
+                order: artist.order ?? 999, // Default to a high number if order is missing
             }));
+
+            // Sort by order
+            return transformedArtists.sort((a, b) => a.order - b.order);
         }
 
         return [];
